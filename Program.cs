@@ -9,24 +9,28 @@ namespace Git
     {
         static void Main()
         {
-            using (var connection = new SqliteConnection("Data Source=GoodInvest.db"))
+            if (!File.Exists("GoodInvest.db"))
             {
-                connection.Open();
+                using (var connection = new SqliteConnection("Data Source=GoodInvest.db"))
+                {
+                    connection.Open();
 
-                SendSQLCommandNonQuery(connection, @"CREATE TABLE Investors (
+                    SendSQLCommandNonQuery(connection, @"CREATE TABLE Investors (
                                                     [Id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                                                     [Name] TEXT(50) NOT NULL,
                                                     [Investment] INT NOT NULL,
-                                                    [age] int NOT NULL);");
-                SendSQLCommandNonQuery(connection, @"CREATE TABLE Companies (
+                                                    [age] int NOT NULL);
+                                                    CREATE TABLE Companies (
                                                     [Id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                                                     [Name] TEXT(50) NOT NULL,
-                                                    [Investment] INT NOT NULL);");
-                SendSQLCommandNonQuery(connection, @"CREATE TABLE GrowthOfShares (
+                                                    [Investment] INT NOT NULL);
+                                                    CREATE TABLE GrowthOfShares (
                                                     [Id] integer PRIMARY KEY AUTOINCREMENT NOT NULL,
                                                     [CompanyId] INT NOT NULL,
                                                     [Percent] REAL NOT NULL);");
+                }
             }
+
         }
 
         private static void SendSQLCommandNonQuery(SqliteConnection connection, string textCommand)
@@ -38,6 +42,4 @@ namespace Git
             command.ExecuteNonQuery();
         }
     }
-
-
 }
