@@ -13,7 +13,10 @@ namespace Git
             {
                 File.Delete("GoodInvest.db");
             }
-            using (var connection = new SqliteConnection("Data Source=GoodInvest.db"))
+
+            var connectionString = new SqliteConnectionStringBuilder();
+            connectionString.DataSource = "GoodInvest.db";
+            using (var connection = new SqliteConnection(connectionString.ConnectionString))
             {
                 connection.Open();
 
