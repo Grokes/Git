@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Git.Migrations
 {
     [DbContext(typeof(DataBase))]
-    [Migration("20240219122547_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240219135010_second")]
+    partial class second
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

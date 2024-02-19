@@ -5,7 +5,7 @@
 namespace Git.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class second : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

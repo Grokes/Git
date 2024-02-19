@@ -13,7 +13,7 @@ namespace Git
             //{
             //    File.Delete("GoodInvest.db");
             //}
-
+            var Test = new DataBase();
             //var connectionString = new SqliteConnectionStringBuilder();
             //connectionString.DataSource = "GoodInvest.db";
             //using (var connection = new SqliteConnection(connectionString.ConnectionString))
