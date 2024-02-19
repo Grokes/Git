@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Git.Migrations
 {
     [DbContext(typeof(DataBase))]
-    [Migration("20240219135010_second")]
-    partial class second
+    [Migration("20240219143556_three")]
+    partial class three
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace Git.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CompanyIdId")
+                    b.Property<int>("CompanyId")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("Percent")
@@ -51,7 +51,7 @@ namespace Git.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyIdId");
+                    b.HasIndex("CompanyId");
 
                     b.ToTable("GrowthOfShares");
                 });
@@ -79,13 +79,13 @@ namespace Git.Migrations
 
             modelBuilder.Entity("Git.GrowthOfShares", b =>
                 {
-                    b.HasOne("Git.Company", "CompanyId")
+                    b.HasOne("Git.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyIdId")
+                        .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CompanyId");
+                    b.Navigation("Company");
                 });
 #pragma warning restore 612, 618
         }

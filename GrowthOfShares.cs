@@ -12,6 +12,7 @@ namespace Git
     {
         public int Id { get; set; }
         public double Percent { get; set; }
-        public Company CompanyId { get; set; }
+        public int CompanyId { get; set; }
+        public Company Company { get; set; }
     }
 }
